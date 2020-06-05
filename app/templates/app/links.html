@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+{% extends "app/layout.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <h2>{{ title }}</h2>
+<a href ="https://www.airpano.ru/" target="_blank"> <img src="{% static 'app/content/logo1.png' %}" alt="Logo 1"/></a></ul>
+<a href ="https://tonkosti.ru/" target="_blank"> <img src="{% static 'app/content/logo2.svg' %}" alt="Logo 1"/></a></ul>
+<a href ="https://www.tripadvisor.ru/" target="_blank"> <img src="{% static 'app/content/logo3.svg' %}" alt="Logo 1"/></a></ul>
+</head>
+<body>
+
+</body>
+</html>
+{% endblock %}

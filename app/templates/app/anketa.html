@@ -1,0 +1,65 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+{% if form != None %}
+ <br><h2>Ответьте, пожалуйста, на вопросы:</h2><br>
+  <div>
+      <form method="post">
+      {% csrf_token %}
+      <label for="{{form.name.id_for_label}}">{{ form.name.label }}</label>
+      {{ form.name }}<br><br>
+       <label for="{{form.dov.id_for_label}}">{{ form.dov.label }}</label>
+      {{ form.dov }}
+      <label for="{{form.rek.id_for_label}}">{{ form.rek.label }}</label><br>
+      {{ form.rek }}<br><br>
+      <label for="{{form.avto.id_for_label}}">{{ form.avto.label }}</label><br>
+      {{ form.avto }}<br><br>
+      <label for="{{form.notice.id_for_label}}">{{ form.notice.label }}</label>
+      {{ form.notice }}<br><br>
+      <label for="{{form.email.id_for_label}}">{{ form.email.label }}</label>
+      {{ form.email }}<br><br>
+      <label for="{{form.message.id_for_label}}">{{ form.message.label }}</label><br>
+      {{ form.message }}<br><br>
+    
+       <button id="b1" type="submit">
+           Отправить
+       </button>
+      </form>
+  </div>
+{% else %}
+ <br><h2>Спасибо за информацию</h2>
+ <h3>Вы сообщили следущее:</h3>
+ <u1>
+     <li><span>Имя:</span> {{ data.name}}</li>
+     <li><span>Насколько Вы довольны нашим веб-сайтом?</span> {{ data.dov}}</li>
+     <li><span>Вы бы рекомендовали наш веб-сайт другим людям?</span> {{ data.rek}}</li>
+     <li><span>Собираетесь ли вы путешествовать в ближайшее время?</span> {{ data.avto}}</li>
+     <li><span>Рассылка:</span> {{ data.notice}}</li>
+     <li><span>E-mail:</span> {{ data.email}}</li>
+     <li><span>Отзыв:</span> {{ data.message}}</li>
+ </u1>
+{% endif %}
+
+<script>
+    function b1_point() { $('#b1').css('color', 'green'); }
+    function b1_unpoint() { $('#b1').css('color', 'black'); }
+    function name_focus() { $('#id_name').css('background-color', 'Gainsboro'); }
+    function name_blur() { $('#id_name').css('background-color', 'white'); }
+    function email_focus() { $('#id_email').css('background-color', 'Gainsboro'); }
+    function email_blur() { $('#id_email').css('background-color', 'white'); }
+    function message_focus() { $('#id_message').css('background-color', 'Gainsboro'); }
+    function message_blur() { $('#id_message').css('background-color', 'white'); }
+
+    $('#b1').mouseover(b1_point);
+    $('#b1').mouseout(b1_unpoint);
+    $('#id_name').focus(name_focus);
+    $('#id_name').blur(name_blur);
+    $('#id_email').focus(email_focus);
+    $('#id_email').blur(email_blur);
+    $('#id_message').focus(message_focus);
+    $('#id_message').blur(message_blur);
+
+</script>
+
+{% endblock %}
